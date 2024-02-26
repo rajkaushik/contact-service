@@ -18,7 +18,7 @@ export const FindContact = async(req, res) => {
 }
 
 export const AddContact = async (req, res) => {
-    try{
+        try{
         await addContact(req.body);
         res.send({status: 200, message: "New contact added successfully"});
     } catch(err) {
@@ -29,7 +29,7 @@ export const AddContact = async (req, res) => {
 export const DeleteContact = async(req, res) => {
     try{
         await deleteContact(req.params.id)
-        res.send({status: 200, message: `Contact with firstname ${req.params.id} deleted successfully`});
+        res.send({status: 200, message: `Contact with id - ${req.params.id} deleted successfully`});
     } catch(err){
         res.status(400).send({status: 400, message: err.message});
     }
@@ -38,7 +38,7 @@ export const DeleteContact = async(req, res) => {
 export const UpdateContact = async(req, res) => {
     try{
         await updateContact(req.body)
-        res.send({status: 200, message: `Contact with firstname ${req.body.firstname} updated successfully`});
+        res.send({status: 200, message: `Contact with Email ${req.body.email} updated successfully`});
     } catch(err){
         res.status(400).send({status: 400, message: err.message});
     }

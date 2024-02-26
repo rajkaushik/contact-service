@@ -3,6 +3,7 @@ import {
     AddContact as addContact,
     DeleteContact as deleteContact,
     UpdateContact as updateContact,
+    FindByEmail as findByEmail
 } from '../repository/contactRepo.js';
 
 export const FindContact = async (id) => {
@@ -15,7 +16,7 @@ export const FindContact = async (id) => {
 }
 
 export const AddContact = async (contact) => {
-    let check = await findContact(contact._id);
+    let check = await findByEmail(contact.email);
     if(check == null){
         await addContact(contact);
     }else {
@@ -33,11 +34,11 @@ export const DeleteContact = async (id) => {
 }
 
 export const UpdateContact = async (contact) => {
-    let result = await findContact(contact._id);
+    let result = await findByEmail(contact.email);
     if(result !== null) {
         return await updateContact(contact);
     } else {
-        throw Error(`Contact with ${contact.firstname} does not exist.`);
+        throw Error(`Contact with ${contact.email} does not exist.`);
     }
 }
 

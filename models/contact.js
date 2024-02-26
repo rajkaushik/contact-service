@@ -15,4 +15,4 @@ const contactSchema = new mongoose.Schema({
     mobile: Number
 })
 
-export default mongoose.model('Contact', contactSchema, 'contact');
+export default mongoose.model('Contact', contactSchema, 'contacts');

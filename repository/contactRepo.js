@@ -6,6 +6,10 @@ export const FindContact = async (id) => {
     return await Contact.findOne({_id: id});
 }
 
+export const FindByEmail = async (email) => {
+    return await Contact.findOne({email: email});
+}
+
 export const FindAllContact = async() => {
     return await Contact.find({});
 }
@@ -23,14 +27,13 @@ export const AddContact = async (contact) => {
 }
 
 export const UpdateContact = async(contact) => {
-    let {firstname, lastname, email, city, phone, _id} = contact;
-    let newContact = await Contact.findOne({_id: _id});
+    let {firstname, lastname, email, city, mobile, _id} = contact;
+    let newContact = await Contact.findOne({email: email});
     newContact.firstname = firstname;
     newContact.lastname = lastname;
     newContact.email = email;
     newContact.city = city;
-    newContact.phone = phone;
-    console.log(newContact);
+    newContact.mobile = mobile;
     await newContact.save();
 }
 

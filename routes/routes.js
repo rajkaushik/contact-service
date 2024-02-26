@@ -10,10 +10,11 @@ import {
 
 const router = express.Router();
 
-router.get('/contact/:id', VerifyTokenMiddleware, FindContact);
-router.get('/contact/', VerifyTokenMiddleware, FindAllContact);
-router.delete('/contact/:id', VerifyTokenMiddleware, DeleteContact);
-router.post('/contact', VerifyTokenMiddleware, AddContact);
-router.put('/contact', VerifyTokenMiddleware, UpdateContact);
+router.get('/contacts/:id', VerifyTokenMiddleware, FindContact);
+router.get('/contacts/', VerifyTokenMiddleware, FindAllContact);
+router.delete('/contacts/:id', VerifyTokenMiddleware, DeleteContact);
+router.post('/contacts', VerifyTokenMiddleware, AddContact);
+router.put('/contacts', VerifyTokenMiddleware, UpdateContact);
+
 
 export default router;
